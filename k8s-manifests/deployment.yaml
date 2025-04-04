@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stock-ms
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stock-ms
+  template:
+    metadata:
+      labels:
+        app: stock-ms
+    spec:
+      containers:
+      - name: stock-ms
+        image: aleclp/stock-ms:latest
+        ports:
+        - containerPort: 8082
